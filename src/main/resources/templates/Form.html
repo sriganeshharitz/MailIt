@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en" th:xmlns="www.thymeleaf.org">
+<head>
+    <script src="https://use.fontawesome.com/80407082d6.js" th:src="@{https://use.fontawesome.com/80407082d6.js}"></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}">
+    <link rel="stylesheet" href="../static/css/test.css" th:href="@{/css/test.css}">
+
+</head>
+<body>
+<!--<div class="container-fluid">-->
+    <!--<div class="row justify-content-md-center">-->
+        <!--<h2 >MailIt</h2>-->
+    <!--</div>-->
+    <!--<div class="row justify-content-md-center">-->
+        <!--<div class="col-md-6">-->
+            <!--<form th:action="@{/sendMail}" method="post">-->
+                <!--<div class="form-group">-->
+                    <!--<label for="recipients">To:</label>-->
+                    <!--<textarea class="form-control" rows="5" id="recipients" th:field="${emailBean.recipients}" placeholder="Ex: ram@gmail.com,krishna@hotmail.com,shyam@yahoo.com"></textarea>-->
+                    <!--<p th:if="${#fields.hasErrors('emailBean.recipients')}" th:errors="${emailBean.recipients}" class="text-danger">Recipients Error</p>-->
+                <!--</div>-->
+                <!--<div class="form-group">-->
+                    <!--<label for="subject">Subject</label>-->
+                    <!--<input th:field="${emailBean.subject}" type="text" class="form-control" id="subject"placeholder="">-->
+                    <!--<p th:if="${#fields.hasErrors('emailBean.subject')}" th:errors="${emailBean.subject}" class="text-danger">Subject Error</p>-->
+                <!--</div>-->
+
+                <!--<div class="form-group">-->
+                    <!--<label for="body">Body</label>-->
+                    <!--<textarea class="form-control" rows="5" id="body" th:field="${emailBean.body}"></textarea>-->
+                    <!--<p th:if="${#fields.hasErrors('emailBean.body')}" th:errors="${emailBean.body}" class="text-danger">Body error</p>-->
+                <!--</div>-->
+                <!--<div class="row justify-content-md-center">-->
+                <!--<input type="submit" value="Send Mails" class="btn btn-primary" style="margin:auto">-->
+                <!--</div>-->
+            <!--</form>-->
+        <!--</div>-->
+    <!--</div>-->
+    <div class="jumbotron jumbotron-sm">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-lg-12">
+                    <h1 class="h1">
+                        MailIt </h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container myclass">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="well well-sm">
+                    <form action="#" method="post" th:action="@{/sendMail}" enctype="multipart/form-data">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <!-- <div class="form-group">
+                                    <label for="email">
+                                        To</label>
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-users"></i>
+                                        </span>
+                                        <input type="email" class="form-control" id="email" placeholder="Ex: ram@abc.com,krishn@def.com" required="required" /></div>
+                                </div> -->
+                                <div class="form-group">
+                                    <label for="recipients">
+                                        To <i class="fa fa-users"></i></label>
+                                    <textarea th:field="${emailBean.recipients}" id="recipients" class="form-control" rows="3" cols="25"
+                                              placeholder="Ex: ram@abc.com,krishn@def.com" ></textarea>
+                                    <p th:if="${#fields.hasErrors('emailBean.recipients')}" th:errors="${emailBean.recipients}" class="text-danger">Recipients Error</p>
+                                </div>
+                                <div class="form-group">
+                                    <label for="subject">
+                                        Subject</label>
+                                    <input type="text" class="form-control" id="subject" placeholder="Subject" required="required" th:field="${emailBean.subject}"/>
+                                    <p th:if="${#fields.hasErrors('emailBean.subject')}" th:errors="${emailBean.subject}" class="text-danger">Subject Error</p>
+                                </div>
+                                <div class="form-group">
+                                    <label for="file">
+                                        Upload File</label><br>
+                                    <input type="file"  id="file" name="file"/>
+                                </div>
+
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="body">
+                                        Body</label>
+                                    <textarea th:field="${emailBean.body}" id="body" class="form-control" rows="9" cols="25"
+                                              placeholder="Body"></textarea>
+                                    <p th:if="${#fields.hasErrors('emailBean.body')}" th:errors="${emailBean.body}" class="text-danger">Body error</p>
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <div class="row justify-content-center">
+
+                                <button type="submit" name="button" class="btn btn-success bot"><span><i class="fa fa-paper-plane fa-pull-left"></i></span>Send Mails</button>
+
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+<!--</div>-->
+<script src="../static/js/bootstrap.min.js" th:src="@{/js/bootstrap.min.js}"></script>
+</body>
+</html>
