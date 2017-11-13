@@ -62,7 +62,7 @@ public class HomeController {
         }
         else {
             System.out.println("There are no recipients");
-            if(file==null){
+            if(file==null||file.isEmpty()){
                 model.addAttribute("error","Please choose a file");
                 return "Form";
             }

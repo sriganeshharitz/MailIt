@@ -43,6 +43,9 @@ public class ExcelServiceImpl implements ExcelService {
             Sheet sheet = workbook.getSheetAt(0);
             List<Student> students = new ArrayList<Student>();
             for(Row row:sheet){
+                if(row.getRowNum()==0){
+                    continue;
+                }
                 Student student = new Student();
                 for(Cell cell:row){
                     switch (cell.getColumnIndex()){
@@ -56,10 +59,12 @@ public class ExcelServiceImpl implements ExcelService {
                             student.setEmail(cell.getRichStringCellValue().getString());
                             break;
                         case 3:
-                            student.setJavaScore(cell.getNumericCellValue()+"");
+                            student.setJavaScore((int)cell.getNumericCellValue());
                             break;
                         case 4:
-                            student.setAptitudeScore(cell.getNumericCellValue()+"");
+                            student.setAptitudeScore((int)cell.getNumericCellValue());
+                            break;
+                        default:
                             break;
                     }
                 }

@@ -51,11 +51,13 @@ public class EmailServiceImpl implements EmailService {
             sb.append(student.getFirstName());
             sb.append(" ");
             sb.append(student.getLastName());
-            sb.append(". Your Scores are as follows:\n");
-            sb.append("Java:");
+            sb.append(",\n\n");
+            sb.append("Your UIT scores are as follows:\n");
+            sb.append("Java : ");
             sb.append(student.getJavaScore());
-            sb.append("\nAptitude:");
+            sb.append("\nAptitude : ");
             sb.append(student.getAptitudeScore());
+            sb.append("\n\nRegards,\nSriganesh.");
             simpleMailMessage.setText(sb.toString());
             javaMailSender.send(simpleMailMessage);
         }

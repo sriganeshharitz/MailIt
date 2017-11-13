@@ -70,7 +70,7 @@
                                     <label for="recipients">
                                         To <i class="fa fa-users"></i></label>
                                     <textarea th:field="${emailBean.recipients}" id="recipients" class="form-control" rows="3" cols="25"
-                                              placeholder="Ex: ram@abc.com,krishn@def.com" ></textarea>
+                                              placeholder="Leave empty if uploading a spreadsheet" ></textarea>
                                     <p th:if="${#fields.hasErrors('emailBean.recipients')}" th:errors="${emailBean.recipients}" class="text-danger">Recipients Error</p>
                                 </div>
                                 <div class="form-group">
@@ -83,6 +83,7 @@
                                     <label for="file">
                                         Upload File</label><br>
                                     <input type="file"  id="file" name="file"/>
+                                    <p th:text="${error}" class="text-danger font font-weight-bold">File error</p>
                                 </div>
 
                             </div>
@@ -91,7 +92,7 @@
                                     <label for="body">
                                         Body</label>
                                     <textarea th:field="${emailBean.body}" id="body" class="form-control" rows="9" cols="25"
-                                              placeholder="Body"></textarea>
+                                              placeholder="Leave empty if uploading a spreadsheet"></textarea>
                                     <p th:if="${#fields.hasErrors('emailBean.body')}" th:errors="${emailBean.body}" class="text-danger">Body error</p>
                                 </div>
                             </div>

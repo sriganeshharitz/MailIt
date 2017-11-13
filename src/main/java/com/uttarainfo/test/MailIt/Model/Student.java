@@ -4,10 +4,10 @@ public class Student {
     private String email;
     private String firstName;
     private String lastName;
-    private String javaScore;
-    private String aptitudeScore;
+    private int javaScore;
+    private int aptitudeScore;
 
-    public Student(String email, String firstName, String lastName, String javaScore, String aptitudeScore) {
+    public Student(String email, String firstName, String lastName, int javaScore, int aptitudeScore) {
         this.email = email;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -42,19 +42,19 @@ public class Student {
         this.lastName = lastName;
     }
 
-    public String getJavaScore() {
+    public int getJavaScore() {
         return javaScore;
     }
 
-    public void setJavaScore(String javaScore) {
+    public void setJavaScore(int javaScore) {
         this.javaScore = javaScore;
     }
 
-    public String getAptitudeScore() {
+    public int getAptitudeScore() {
         return aptitudeScore;
     }
 
-    public void setAptitudeScore(String aptitudeScore) {
+    public void setAptitudeScore(int aptitudeScore) {
         this.aptitudeScore = aptitudeScore;
     }
 
@@ -76,20 +76,20 @@ public class Student {
 
         Student student = (Student) o;
 
-        if (email != null ? !email.equals(student.email) : student.email != null) return false;
-        if (firstName != null ? !firstName.equals(student.firstName) : student.firstName != null) return false;
-        if (lastName != null ? !lastName.equals(student.lastName) : student.lastName != null) return false;
-        if (javaScore != null ? !javaScore.equals(student.javaScore) : student.javaScore != null) return false;
-        return aptitudeScore != null ? aptitudeScore.equals(student.aptitudeScore) : student.aptitudeScore == null;
+        if (javaScore != student.javaScore) return false;
+        if (aptitudeScore != student.aptitudeScore) return false;
+        if (!email.equals(student.email)) return false;
+        if (!firstName.equals(student.firstName)) return false;
+        return lastName.equals(student.lastName);
     }
 
     @Override
     public int hashCode() {
-        int result = email != null ? email.hashCode() : 0;
-        result = 31 * result + (firstName != null ? firstName.hashCode() : 0);
-        result = 31 * result + (lastName != null ? lastName.hashCode() : 0);
-        result = 31 * result + (javaScore != null ? javaScore.hashCode() : 0);
-        result = 31 * result + (aptitudeScore != null ? aptitudeScore.hashCode() : 0);
+        int result = email.hashCode();
+        result = 31 * result + firstName.hashCode();
+        result = 31 * result + lastName.hashCode();
+        result = 31 * result + javaScore;
+        result = 31 * result + aptitudeScore;
         return result;
     }
 }
